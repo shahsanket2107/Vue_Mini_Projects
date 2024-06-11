@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="intro">
+        <h1> {{counter}} </h1>
+        <button v-on:click="inc"> INC </button>
+        <button v-on:click="dec"> DEC </button>
+        <button v-on:click="reset"> RES </button>
+    </div>
+
+    <script>
+        // Creating vue instance
+
+        new Vue({
+            el: '#intro',
+            data: {
+                counter: 10,
+            },
+            methods: {
+                inc: function(){
+                    this.counter++
+                },
+                dec: function(){
+                    this.counter--
+                },
+                reset: function(){
+                    this.counter=10
+                }
+            }
+        })
+    </script>
+</body>
+</html>

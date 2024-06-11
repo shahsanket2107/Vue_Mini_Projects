@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="mydata">
+        <h1> {{firstName}} </h1>
+        <h1> {{lastName}} </h1>
+        <h1> {{Country}} </h1>
+        <h1> {{mydetails()}} </h1>
+    </div>
+
+    <script>
+        // Creating vue instance
+
+        new Vue({
+            el: '#mydata',
+            data: {
+                firstName: 'Admin',
+                lastName: 'Manager',
+                Country: 'India'
+            },
+            methods: {
+                mydetails: function(){
+                    return "I am " + this.firstName + " " + this.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

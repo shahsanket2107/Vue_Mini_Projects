@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="intro">
+        <p v-if="show"> First para </p>
+        <p v-else> Second para </p>
+        <template v-if="show">
+            <p> Inside the template </p>
+            <h2> This is a heading </h2>
+            <p> Another para </p>
+        </template>
+        <button @click="show = !show"> Switch </button>
+        <hr>
+        <ul>
+            <li v-for="(user,i) in users">{{user}} - {{i}}</li>
+        </ul>
+        <hr>
+        Push the new user: <button @click="addUser('New User')"> Add User </button>
+        <hr>
+        <ul>
+            <li v-for="user in userdata">
+                <div v-for="(value,key,index) in user"> {{key}}:{{value}} </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Creating vue instance
+
+        new Vue({
+            el: '#intro',
+            data: {
+                show: true,
+                users: ['Tony','Bruce','Steven'],
+                userdata:[
+                    {name:"Tony",age:45,email:"tony.stark@gmail.com"},
+                    {name:"Bruce",age:41,email:"bruce.bannerk@gmail.com"},
+                    {name:"Steve",age:34,email:"steve.rogers@gmail.com"},
+                ]
+            },
+            methods: {
+                addUser: function(user){
+                    this.users.push(user)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

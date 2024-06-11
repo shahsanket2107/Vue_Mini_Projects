@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="intro">
+        <h1 v-on:mousemove="updateCoord"> Co-ordinates: {{x}}/{{y}}
+
+            - <span v-on:mousemove.stop=""> Stop it!!</span>
+        </h1>
+        <hr>
+        Username: <input type="text" v-on:keyup.enter="alertMe"/>
+        Address: <input type="text" v-model="address"/>
+        {{address}} 
+        <button v-on:click="inc"> INC </button>
+        <p> {{counter*2>5?'Greater than 5':'Smaller than 5'}} </p>
+    </div>
+
+    <script>
+        // Creating vue instance
+
+        new Vue({
+            el: '#intro',
+            data: {
+                x:0 ,
+                y:0,
+                counter:1,
+                address:'Mumbai'
+            },
+            methods: {
+                updateCoord: function(event){
+                    this.x = event.clientX
+                    this.y = event.clientY
+                },
+                inc: function(){
+                    this.counter++;
+                },
+                dummy: function(event){
+                    event.stopPropogation();
+                },
+                alertMe: function(){
+                    alert('Called')
+                }
+            },
+        })
+    </script>
+</body>
+</html>

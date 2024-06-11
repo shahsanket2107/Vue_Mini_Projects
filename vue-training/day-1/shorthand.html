@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="intro">
+        <button @click="changeLink"> Change Link </button>
+        <a v-bind:href="link"> Link </a>
+    </div>
+
+    <script>
+        // Creating vue instance
+
+        new Vue({
+            el: '#intro',
+            data: {
+                link: 'http://www.google.com'
+            },
+            methods: {
+                changeLink:function(){
+                    this.link = 'http://www.yahoo.com'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
